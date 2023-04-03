@@ -50,11 +50,13 @@ Dictionary<string,string> dict = new Dictionary<string,string>();
 // Each value is a randomly selected flavor from your flavors List (remember Random from earlier?)
 for(int i = 0; i < arr2.Length; i++)
 {
-    dict.Add(arr2[i], stringList[i]);
+    Random randNum = new Random(); 
+    dict.Add(arr2[i], stringList[randNum.Next(0,4)]);
 }
 
 // Loop through the dictionary and print out each user's name and their associated ice cream flavor.
 foreach (KeyValuePair<string,string> entry in dict )
 {
+    
     Console.WriteLine(entry);
 }
