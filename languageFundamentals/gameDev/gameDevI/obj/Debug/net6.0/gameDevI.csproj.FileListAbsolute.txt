@@ -1,0 +1,15 @@
+C:\Users\antho\Documents\CodingDojo\cSharp\languageFundamentals\gameDev\gameDevI\bin\Debug\net6.0\gameDevI.exe
+C:\Users\antho\Documents\CodingDojo\cSharp\languageFundamentals\gameDev\gameDevI\bin\Debug\net6.0\gameDevI.deps.json
+C:\Users\antho\Documents\CodingDojo\cSharp\languageFundamentals\gameDev\gameDevI\bin\Debug\net6.0\gameDevI.runtimeconfig.json
+C:\Users\antho\Documents\CodingDojo\cSharp\languageFundamentals\gameDev\gameDevI\bin\Debug\net6.0\gameDevI.dll
+C:\Users\antho\Documents\CodingDojo\cSharp\languageFundamentals\gameDev\gameDevI\bin\Debug\net6.0\gameDevI.pdb
+C:\Users\antho\Documents\CodingDojo\cSharp\languageFundamentals\gameDev\gameDevI\obj\Debug\net6.0\gameDevI.csproj.AssemblyReference.cache
+C:\Users\antho\Documents\CodingDojo\cSharp\languageFundamentals\gameDev\gameDevI\obj\Debug\net6.0\gameDevI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\antho\Documents\CodingDojo\cSharp\languageFundamentals\gameDev\gameDevI\obj\Debug\net6.0\gameDevI.AssemblyInfoInputs.cache
+C:\Users\antho\Documents\CodingDojo\cSharp\languageFundamentals\gameDev\gameDevI\obj\Debug\net6.0\gameDevI.AssemblyInfo.cs
+C:\Users\antho\Documents\CodingDojo\cSharp\languageFundamentals\gameDev\gameDevI\obj\Debug\net6.0\gameDevI.csproj.CoreCompileInputs.cache
+C:\Users\antho\Documents\CodingDojo\cSharp\languageFundamentals\gameDev\gameDevI\obj\Debug\net6.0\gameDevI.dll
+C:\Users\antho\Documents\CodingDojo\cSharp\languageFundamentals\gameDev\gameDevI\obj\Debug\net6.0\refint\gameDevI.dll
+C:\Users\antho\Documents\CodingDojo\cSharp\languageFundamentals\gameDev\gameDevI\obj\Debug\net6.0\gameDevI.pdb
+C:\Users\antho\Documents\CodingDojo\cSharp\languageFundamentals\gameDev\gameDevI\obj\Debug\net6.0\gameDevI.genruntimeconfig.cache
+C:\Users\antho\Documents\CodingDojo\cSharp\languageFundamentals\gameDev\gameDevI\obj\Debug\net6.0\ref\gameDevI.dll
