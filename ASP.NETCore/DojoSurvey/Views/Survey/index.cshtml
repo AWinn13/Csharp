@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="~/css/style.css">
+    <title>Form</title>
+</head>
+<body class="bg-black">
+    <div>
+        <form  action="process" method="post">
+            <input type="text"  placeholder="Your Name" name="Name">
+            <select name="Location" placeholder="Location" >
+            <option value="Mars">Mars</option>
+            <option value="Oklahoma">Oklahoma</option>
+            <option value="Backyard">Backyard</option>
+            
+            </select>
+            <select name="Language" placeholder="Favorite Language">
+                <option value="C#">C#</option>
+                <option value="javascript">javascript</option>
+                <option value="Python">Python</option>
+            </select>
+            <textarea name="Comments" cols="30" rows="10" placeholder="Comments"></textarea>
+            <button>Submit</button>
+        </form>
+    </div>
+</body>
+</html>

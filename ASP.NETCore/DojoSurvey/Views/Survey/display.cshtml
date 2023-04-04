@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Display</title>
+</head>
+
+<body>
+    <div>
+        <h2>Submitted Info</h2>
+        <div>
+            <p>Name: @Context.Session.GetString("Name")</p>
+            <p>Location: @Context.Session.GetString("Location")</p>
+            <p>Language: @Context.Session.GetString("Language")</p>
+            <p>Comments: @Context.Session.GetString("Comments")</p>
+        </div>
+    </div>
+</body>
+
+</html>
