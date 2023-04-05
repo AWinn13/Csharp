@@ -6,23 +6,30 @@
     <div class="container-xl grid gap-4 justify-center">
 
         <label for="Name">Name:</label>
-        <input type="text" placeholder="Your Name" name="Name" class="border rounded-md">
+        <input asp-for="Name" type="text" placeholder="Your Name" class="border rounded-md">
+        <span asp-validation-for="Name"></span>
 
 
         <label for="Location">Location:</label>
-        <select name="Location" placeholder="Location" class="border rounded-md">
+        <select asp-for="Location" placeholder="Location" class="border rounded-md">
+            <option selected value=""></option>
             <option value="Mars">Mars</option>
             <option value="Oklahoma">Oklahoma</option>
             <option value="Backyard">Backyard</option>
         </select>
+        <span asp-validation-for="Location"></span>
         <label for="Language">Favorite Language:</label>
-        <select name="Language" placeholder="Favorite Language" class="border rounded-md">
+        <select asp-for="Language" placeholder="Favorite Language" class="border rounded-md">
+            <option selected value=""></option>
             <option value="C#">C#</option>
             <option value="javascript">javascript</option>
             <option value="Python">Python</option>
         </select>
+        <span asp-validation-for="Language"></span>
         <label for="Comment">Comments</label>
-        <textarea name="Comment" cols="20" rows="5" placeholder="Comments" class="border rounded-md"></textarea>
+        <textarea asp-for="Comment" cols="20" rows="5" placeholder="Comments" class="border rounded-md"></textarea>
+        <span asp-validation-for="Comment"></span>
+
         <button class="border border-black rounded-md p-0.5">Submit</button>
 
     </div>

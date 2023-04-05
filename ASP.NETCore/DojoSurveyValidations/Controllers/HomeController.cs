@@ -22,6 +22,14 @@ public class HomeController : Controller
     [HttpPost("process")]
     public IActionResult Process(Survey newSurvey)
     {
+
+        if(ModelState.IsValid)
+        {
+
+        }
+        else {
+            return View("Index");
+        }
         // HttpContext.Session.SetString("Name", $"{survey.Name}");
         // HttpContext.Session.SetString("Location", $"{survey.Location}");
         // HttpContext.Session.SetString("Language", $"{survey.Language}");
@@ -34,7 +42,6 @@ public class HomeController : Controller
     [HttpGet("display")]
     public IActionResult Display()
     {
-        
         return View("display", survey);
     }
 
