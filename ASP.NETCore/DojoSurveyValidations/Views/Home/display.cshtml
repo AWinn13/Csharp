@@ -1,0 +1,26 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+@model Survey
+
+<div class="grid justify-center mt-2 p-3">
+        <div class="grid justify-center gap-4 border w-52 font-semibold ">
+            <div class="text-xl">Submitted Info</div>
+            <p>Name: @Context.Session.GetString("Name")</p>
+            <p>Location: @Context.Session.GetString("Location")</p>
+            <p>Language: @Context.Session.GetString("Language") </p>
+            @{
+                if(string.IsNullOrEmpty(Context.Session.GetString("Comment")) == true )
+                {
+                    <p>No Comment</p>
+                }
+                else
+                {
+                <p>Comments:@Context.Session.GetString("Comment")</p>
+
+                }
+            }
+            
+            <a href="/" class="border border-black rounded-md p-0.5 mb-1 text-center"><button>Go Back</button></a>
+        </div>
+    </div>
