@@ -6,6 +6,7 @@ namespace DojoSurveyValidations.Controllers;
 
 public class HomeController : Controller
 {
+    static Survey survey;
     private readonly ILogger<HomeController> _logger;
 
     public HomeController(ILogger<HomeController> logger)
@@ -19,21 +20,22 @@ public class HomeController : Controller
     }
 
     [HttpPost("process")]
-    public IActionResult Process(Survey survey)
+    public IActionResult Process(Survey newSurvey)
     {
-        HttpContext.Session.SetString("Name", $"{survey.Name}");
-        HttpContext.Session.SetString("Location", $"{survey.Location}");
-        HttpContext.Session.SetString("Language", $"{survey.Language}");
-        HttpContext.Session.SetString("Comment", $"{survey.Comment}");
+        // HttpContext.Session.SetString("Name", $"{survey.Name}");
+        // HttpContext.Session.SetString("Location", $"{survey.Location}");
+        // HttpContext.Session.SetString("Language", $"{survey.Language}");
+        // HttpContext.Session.SetString("Comment", $"{survey.Comment}");
+        survey = newSurvey;
         Console.WriteLine(survey.Comment);
         return RedirectToAction ("Display");
     }
     
     [HttpGet("display")]
-    public IActionResult Display(Survey survey)
+    public IActionResult Display()
     {
         
-        return View("display");
+        return View("display", survey);
     }
 
     public IActionResult Privacy()
