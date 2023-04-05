@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,24 +9,34 @@
     <link rel="stylesheet" href="~/css/style.css">
     <title>Form</title>
 </head>
-<body class="bg-black">
-    <div>
-        <form  action="process" method="post">
-            <input type="text"  placeholder="Your Name" name="Name">
-            <select name="Location" placeholder="Location" >
-            <option value="Mars">Mars</option>
-            <option value="Oklahoma">Oklahoma</option>
-            <option value="Backyard">Backyard</option>
-            
+
+<body class="bg-slate-600">
+
+    <form action="process" method="post">
+        <div class="container-xl grid gap-4 justify-center">
+
+            <label for="Name">Name:</label>
+            <input type="text" placeholder="Your Name" name="Name" class="border rounded-md">
+
+
+            <label for="Location">Location:</label>
+            <select name="Location" placeholder="Location" class="border rounded-md">
+                <option value="Mars">Mars</option>
+                <option value="Oklahoma">Oklahoma</option>
+                <option value="Backyard">Backyard</option>
             </select>
-            <select name="Language" placeholder="Favorite Language">
+            <label for="Language">Favorite Language:</label>
+            <select name="Language" placeholder="Favorite Language" class="border rounded-md">
                 <option value="C#">C#</option>
                 <option value="javascript">javascript</option>
                 <option value="Python">Python</option>
             </select>
-            <textarea name="Comments" cols="30" rows="10" placeholder="Comments"></textarea>
-            <button>Submit</button>
-        </form>
-    </div>
+            <label for="Comments">Comments</label>
+            <textarea name="Comments" cols="20" rows="5" placeholder="Comments" class="border rounded-md"></textarea>
+            <button class="border border-black rounded-md p-0.5">Submit</button>
+
+        </div>
+    </form>
 </body>
+
 </html>

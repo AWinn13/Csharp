@@ -8,17 +8,17 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DojoSurvey
 build_property.RootNamespace = DojoSurvey
-build_property.ProjectDir = C:\Users\antho\Documents\CodingDojo\cSharp\ASP.NETCore\DojoSurvey\
+build_property.ProjectDir = c:\Users\antho\Documents\CodingDojo\cSharp\ASP.NETCore\DojoSurvey\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\antho\Documents\CodingDojo\cSharp\ASP.NETCore\DojoSurvey
+build_property.MSBuildProjectDirectory = c:\Users\antho\Documents\CodingDojo\cSharp\ASP.NETCore\DojoSurvey
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/antho/Documents/CodingDojo/cSharp/ASP.NETCore/DojoSurvey/Views/Survey/display.cshtml]
+[c:/Users/antho/Documents/CodingDojo/cSharp/ASP.NETCore/DojoSurvey/Views/Survey/display.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VydmV5XGRpc3BsYXkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/antho/Documents/CodingDojo/cSharp/ASP.NETCore/DojoSurvey/Views/Survey/index.cshtml]
+[c:/Users/antho/Documents/CodingDojo/cSharp/ASP.NETCore/DojoSurvey/Views/Survey/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VydmV5XGluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
