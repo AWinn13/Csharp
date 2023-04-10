@@ -12,6 +12,6 @@ public class Survey
     [Required]
     public string Language {get;set;}
     [MinLength(20)]
-    public string Comment {get;set;}
+    public string? Comment {get;set;}
     
 }
