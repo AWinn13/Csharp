@@ -1,0 +1,20 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+@model Dish
+
+<div class="card text-bg-light shadow mb-3 mx-auto mt-3" style="max-width: 25rem;">
+    <div class="card-header">Chef: @Model.Chef</div>
+        <div class="card-body">
+            <p class="card-title">@Model.Name</p>
+            <p class="card-text">@Model.Description</p>
+            <p class="card-text">Tastiness: @Model.Tastiness</p>
+            <p class="card-text">Calories: @Model.Calories</p>
+    </div>
+</div>
+<div class="w-25 mx-auto d-flex justify-content-evenly">
+    <form asp-action="Destroy" asp-controller="Home"  method="post" asp-route-id="@Model.DishId">
+        <input class="btn btn-outline-danger" type="submit"  value="Delete">
+    </form>
+    <a href="/Dishes/@Model.DishId/edit" class="btn btn-outline-info">Edit</a>
+</div>

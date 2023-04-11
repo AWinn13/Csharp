@@ -13,12 +13,16 @@ public class HomeController : Controller
         _logger = logger;
     }
 
+
+// -------------RENDER INDEX PAGE-------------
     [HttpGet("")]
     public IActionResult Index()
     {
         return View("index");
     }
 
+
+// ---------POST FOR FORM------------------
     [HttpPost("Process")]
     public IActionResult Process(string Name)
     {
@@ -27,8 +31,8 @@ public class HomeController : Controller
         return RedirectToAction("Display");
     }
 
-
-    [HttpGet("display")]
+// -----------DISPLAY RESULTS-------------
+    [HttpGet("Display")]
     public IActionResult Display()
     { 
         
@@ -36,7 +40,7 @@ public class HomeController : Controller
     }
 
 
-
+//  ------------POST FOR BUTTONS-------------------- 
     [HttpPost("Dashboard/UpdateNumber")]
     public IActionResult ProcessMath(string button)
     {
