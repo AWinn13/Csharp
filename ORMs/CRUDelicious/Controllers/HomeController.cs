@@ -39,6 +39,7 @@ public class HomeController : Controller
         }
         else
         {
+            // call the method to render the create page
             return RenderCreate();
         }
     }

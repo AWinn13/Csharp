@@ -1,0 +1,19 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+@model LoginUser
+
+<form asp-action="Login"  method="post" class="w-75 mx-auto">
+    <h3>Login</h3>
+    <div class="form-floating mb-3 border shadow-sm">
+        <input class="form-control" type="text" id="Email" placeholder="Email" asp-for="UserEmail">
+        <label for="Email">Email</label>
+    </div>
+    <div class="form-floating mb-3 border shadow-sm">
+        <input class="form-control" type="password" id="Password" placeholder="Password" asp-for="UserPassword">
+        <label for="Password">Password</label>
+    </div>
+    <div class="mb-3 w-25 mx-auto">
+        <button class="btn btn-outline-dark">Submit</button>
+    </div>
+</form>

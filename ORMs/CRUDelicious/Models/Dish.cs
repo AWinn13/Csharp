@@ -5,7 +5,6 @@ namespace CRUDelicious.Models;
 public class Dish
 {
     [Key]
-    [Required]
     public int DishId {get; set;}
     [Required]
     public string Name {get; set;}
