@@ -1,0 +1,29 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+@model MyViewModel
+ <div class="container">
+        <div class="d-flex mb-3 justify-content-around w-50 mx-auto">
+            <a class="display-5" href="/">Products</a>
+            <span class="display-5 border border-black mt-3"></span>
+            <p class="display-5" >Categories</p>
+        </div>
+        <div class="row m-5">
+            <div class="col">
+                <form asp-action="CreateCategory" asp-controller="Home" method="post">
+                    @await Html.PartialAsync("CategoryForm", Model.Category)
+                </form>
+            </div>
+            <div class="col border-start border-black ps-5">
+                <p class="display-6">All Products</p>
+                <ul>
+                    @foreach (Category c in Model.AllCategories)
+                    {
+                        <li>
+                            <a href="/categories/@c.CategoryId">@c.Name</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>

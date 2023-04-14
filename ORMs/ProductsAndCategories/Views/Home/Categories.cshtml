@@ -1,0 +1,33 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+@model Association
+
+ <div class="container">
+        <div class="d-flex mb-3 justify-content-around w-50 mx-auto">
+            <a class="display-5" href="">Products</a>
+            <span class="display-5 border border-black mt-3"></span>
+            <a class="display-5" href="">Categories</a>
+        </div>
+        
+        <div class="row m-5"><div class="col">
+            <div class="col border-start border-black ps-5">
+                <p class="display-6">Add a Product to this category</p>
+                @await Html.PartialAsync("AddAssocCat")
+            </div>
+                <form asp-action="AddProduct" method="post" asp-route-CategoryId="@ViewBag.OC.CategoryId">
+                    <div class="form-floating mb-3 border shadow-sm">
+                        <select name="ProductId" class="form-control" >
+                            @foreach (Product c in ViewBag.AP)
+                                {
+                                    <option selected value="@c.ProductId">@c.Name</option>
+                                }
+                            </select>
+                            <label for="Category">Category</label>
+                    </div>
+                    <button class="btn btn-outline-dark">Add</button>
+                </form>
+            </div>
+            
+        </div>
+    </div>

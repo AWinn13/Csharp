@@ -1,0 +1,10 @@
+@model Category
+
+
+ <p class="display-6">@ViewBag.OC.Name</p>
+    <ul>
+    @foreach (Association i in ViewBag.CP)
+    {
+        <li>@i.Product.Name</li>
+    }
+    </ul>

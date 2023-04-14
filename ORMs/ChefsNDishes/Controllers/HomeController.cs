@@ -54,7 +54,7 @@ public class HomeController : Controller
     [HttpGet("dishes/new")]
     public IActionResult NewDish()
     {
-        var model = new Dish();
+        Dish model = new Dish();
         model.AllChefs =  _context.Chefs.ToList();
         return View("AddDish", model);
     }

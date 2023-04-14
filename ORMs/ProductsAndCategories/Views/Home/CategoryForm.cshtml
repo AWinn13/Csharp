@@ -1,0 +1,8 @@
+@model Category
+
+<div class="form-floating mb-3 border shadow-sm">
+    <input asp-for="Name" class="form-control" type="text" id="Name" placeholder="Name">
+    <label for="Name">Name</label>
+    <span asp-validation-for="Name"></span>
+</div>
+<button class="btn btn-outline-dark">Submit</button>
