@@ -1,9 +1,9 @@
-@model Category
 
+@model MyViewModel
 
- <p class="display-6">@ViewBag.OC.Name</p>
+ <p class="display-6">@Model.Category.Name</p>
     <ul>
-    @foreach (Association i in ViewBag.CP)
+    @foreach (Association i in Model.AllAssociations)
     {
         <li>@i.Product.Name</li>
     }

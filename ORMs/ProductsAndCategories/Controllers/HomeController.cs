@@ -25,7 +25,6 @@ public class HomeController : Controller
             Product = new Product()
 
         };
-        // List<Product> AllProducts = _context.Products.ToList();
         return View(MyModel);
     }
     // ----------------CREATE PRODUCT-------------------------------
@@ -71,23 +70,35 @@ public class HomeController : Controller
     [HttpGet("products/{ProductId}")]
     public IActionResult ViewProduct(int ProductId)
     {
-        Product? OneProduct = _context.Products.Include(a => a.Associations).ThenInclude(a => a.Category).FirstOrDefault(p => p.ProductId == ProductId);
-        List<Category> AllCategories = _context.Categories.ToList();
-        List<Association> ProdCat = _context.Associations.Include(a => a.Category).Where(a => a.ProductId ==ProductId).ToList();
 
-        ViewBag.PC = ProdCat;
-        ViewBag.OP = OneProduct;
-        ViewBag.EC = AllCategories;
-        // MyViewModel WhatModel = new MyViewModel() 
-        // {
-        //     Association = new Association(),
 
-        //     AllAssociations  = _context.Associations.Where(a => a.ProductId == ProductId).Include(a => a.Category).ToList(),
-        //     AllCategories = _context.Categories.ToList(),
-        //     Product =  _context.Products.Include(a => a.Associations).ThenInclude(a => a.Category).FirstOrDefault(p => p.ProductId == ProductId)
+        Product product = _context.Products.FirstOrDefault(p => p.ProductId == ProductId);
 
-        // };
-        return View("Products");
+
+        var productCategories = _context.Associations
+            .Include(a => a.Category)
+            .Where(a => a.ProductId == product.ProductId)
+            .Select(a => a.Category);
+
+        List<Category> allCategories = _context.Categories.ToList();
+
+
+        MyViewModel viewModel = new MyViewModel
+        {
+            Product = _context.Products.FirstOrDefault(p => p.ProductId == ProductId),
+            AllProducts = _context.Products.ToList(),
+            Category = null,
+            AllCategories = allCategories.Except(productCategories).ToList(),
+            Association = null,
+            AllAssociations = _context.Associations
+                .Include(a => a.Product)
+                .Include(a => a.Category)
+                .Where(a => a.ProductId == product.ProductId)
+                .ToList()
+        };
+
+        return View("Products", viewModel);
+
     }
 
 
@@ -96,7 +107,7 @@ public class HomeController : Controller
     public IActionResult AddCategory(int ProductId, Association newAssociation)
     {
         // newAssociation.ProductId = ProductId;
-        if(ModelState.IsValid)
+        if (ModelState.IsValid)
         {
             _context.Add(newAssociation);
             _context.SaveChanges();
@@ -111,23 +122,32 @@ public class HomeController : Controller
     public IActionResult ViewCategory(int CategoryId)
     {
 
-        Category? OneCategory = _context.Categories.Include(a => a.Associations).ThenInclude(a => a.Product).FirstOrDefault(p => p.CategoryId == CategoryId);
-        List<Product> AllProducts = _context.Products.ToList();
-        List<Association> CatProd = _context.Associations.Include(a => a.Product).Where(a => a.CategoryId ==CategoryId).ToList();
+        Category category = _context.Categories.FirstOrDefault(p => p.CategoryId == CategoryId);
 
-        ViewBag.CP = CatProd;
-        ViewBag.OC = OneCategory;
-        ViewBag.AP = AllProducts;
 
-        // MyViewModel Mooodel = new MyViewModel()
-        // {
-        //     Association = new Association(),
-        //     AllAssociations = _context.Associations.Include(p => p.Category).ToList(),
-        //     AllProducts = _context.Products.ToList(),
-        //     Category = _context.Categories.SingleOrDefault(p => p.CategoryId == CategoryId)
+        var categoryProduct = _context.Associations
+            .Include(a => a.Product)
+            .Where(a => a.CategoryId == category.CategoryId)
+            .Select(a => a.Product);
 
-        // };
-        return View("Categories");
+        List<Product> allProducts = _context.Products.ToList();
+
+
+        MyViewModel viewModel = new MyViewModel
+        {
+            Product = null,
+            AllProducts = allProducts.Except(categoryProduct).ToList(),
+            Category = _context.Categories.FirstOrDefault(p => p.CategoryId == CategoryId),
+            AllCategories = _context.Categories.ToList(),
+            Association = null,
+            AllAssociations = _context.Associations
+                .Include(a => a.Product)
+                .Include(a => a.Category)
+                .Where(a => a.CategoryId == category.CategoryId)
+                .ToList()
+        };
+
+        return View("Categories", viewModel);
     }
 
     // ----------------------ADD PRODUCT TO CATEGORY --------------------------
@@ -135,7 +155,7 @@ public class HomeController : Controller
     public IActionResult AddProduct(int CategoryId, Association newAssociation)
     {
         newAssociation.CategoryId = CategoryId;
-        if(ModelState.IsValid)
+        if (ModelState.IsValid)
         {
             _context.Add(newAssociation);
             _context.SaveChanges();
