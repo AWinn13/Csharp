@@ -1,0 +1,43 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+@model Wedding
+<div>
+    <div class="d-flex mb-4">
+        <h3>Welcome @Context.Session.GetString("FirstName")</h3>
+        <p>Home</p>
+        <span>|</span>
+        <a href=""></a>
+        <span>|</span>
+        <a href="/logout">Logout</a>
+    </div>
+    <div class="row">
+            <div class="col border shadow m-3 bg-secondary-subtle">
+                <form asp-action="CreateWedding" asp-controller="Home" class="w-75 mx-auto">
+                    <h3>Register</h3>
+                    <div class="form-floating mb-3 border shadow-sm">
+                        <input class="form-control" type="text" id="WedderOne" placeholder="WedderOne" asp-for="WedderOne">
+                        <label for="WedderOne">Wedder One</label>
+                        <span asp-validation-for="WedderOne"></span>
+                    </div>
+                    <div class="form-floating mb-3 border shadow-sm">
+                        <input class="form-control" type="text" id="WedderTwo" placeholder="Wedder Two" asp-for="WedderTwo">
+                        <label for="WedderTwo">Wedder Two</label>
+                        <span asp-validation-for="WedderTwo"></span>
+                    </div>
+                    <div class="form-floating mb-3 border shadow-sm">
+                        <input class="form-control" type="date" id="Date" placeholder="Date" asp-for="Date">
+                        <label for="Date">Date</label>
+                        <span asp-validation-for="Date"></span>
+                    </div>
+                    <div class="form-floating mb-3 border shadow-sm">
+                        <input class="form-control" type="text" id="Address" placeholder="Address" asp-for="Address">
+                        <label for="Address">Address</label>
+                        <span asp-validation-for="Address"></span>
+                    </div>
+                    <div class="mb-3 w-25 mx-auto">
+                        <button class="btn btn-outline-dark">Register</button>
+                    </div>
+                </form>
+            </div>
+</div>

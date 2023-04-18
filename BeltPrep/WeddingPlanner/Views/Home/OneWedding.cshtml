@@ -1,0 +1,23 @@
+@model MyViewModel
+
+<div>
+    <div class="d-flex mb-4">
+        <h3>Welcome @Context.Session.GetString("FirstName")</h3>
+        <p>Home</p>
+        <span>|</span>
+        <a href=""></a>
+        <span>|</span>
+        <a href="/logout">Logout</a>
+    </div>
+    <div>
+        @Model.Wedding.WedderOne & @Model.Wedding.WedderTwo 's Wedding'
+    </div>
+    <div>@Model.Wedding.Date</div>
+    <h6>Guests</h6>
+    <ul>
+        @foreach (Guest i in Model.AllGuests)
+        {
+            <li>@i.User.FirstName</li>
+        }
+    </ul>
+</div>

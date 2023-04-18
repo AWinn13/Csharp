@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model User
+<div class="container">
+        <div class="row">
+            <div class="col border shadow m-3 bg-secondary-subtle">
+                <form asp-action="CreateUsers"  method="post" asp-controller="Home" class="w-75 mx-auto">
+                    <h3>Register</h3>
+                    <div class="form-floating mb-3 border shadow-sm">
+                        <input class="form-control" type="text" id="FirstName" placeholder="First Name" asp-for="FirstName">
+                        <label for="FirstName">First Name</label>
+                        <span asp-validation-for="FirstName"></span>
+                    </div>
+                    <div class="form-floating mb-3 border shadow-sm">
+                        <input class="form-control" type="text" id="LastName" placeholder="Last Name" asp-for="LastName">
+                        <label for="LastName">Last Name</label>
+                        <span asp-validation-for="LastName"></span>
+                    </div>
+                    <div class="form-floating mb-3 border shadow-sm">
+                        <input class="form-control" type="text" id="Email" placeholder="Email" asp-for="Email">
+                        <label for="Email">Email</label>
+                        <span asp-validation-for="Email"></span>
+                    </div>
+                    <div class="form-floating mb-3 border shadow-sm">
+                        <input class="form-control" type="password" placeholder="Password" asp-for="Password">
+                        <label for="Password">Password</label>
+                        <span asp-validation-for="Password"></span>
+                    </div>
+                    <div class="form-floating mb-3 border shadow-sm">
+                        <input asp-for="PasswordConfirm" class="form-control" type="password" id="PasswordConfirm" placeholder="Confirm Password" >
+                        <label for="PasswordConfirm">Confirm Password</label>
+                        <span asp-validation-for="PasswordConfirm"></span>
+                    </div>
+                    <div class="mb-3 w-25 mx-auto">
+                        <button type="submit" class="btn btn-outline-dark">Register</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col border m-3 shadow bg-secondary-subtle h-50">
+                @await Html.PartialAsync("LoginForm")
+            </div>
+        </div>
+    </div>
+
