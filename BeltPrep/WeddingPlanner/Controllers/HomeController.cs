@@ -24,20 +24,21 @@ public class HomeController : Controller
     {
         return View("Index");
     }
-
+    
+// -----------------CREATE NEW USER---------------------------------------------
     [HttpPost("/users/create")]
     public IActionResult CreateUsers(User newUser)
     {
         if (ModelState.IsValid)
         {
 
-        PasswordHasher<User> Hasher = new PasswordHasher<User>();
-        newUser.Password = Hasher.HashPassword(newUser, newUser.Password);
-        _context.Add(newUser);
-        _context.SaveChanges();
-        HttpContext.Session.SetInt32("UserId", newUser.UserId);
-        HttpContext.Session.SetString("FirstName", newUser.FirstName);
-        return RedirectToAction("ViewWeddings");
+            PasswordHasher<User> Hasher = new PasswordHasher<User>();
+            newUser.Password = Hasher.HashPassword(newUser, newUser.Password);
+            _context.Add(newUser);
+            _context.SaveChanges();
+            HttpContext.Session.SetInt32("UserId", newUser.UserId);
+            HttpContext.Session.SetString("FirstName", newUser.FirstName);
+            return RedirectToAction("ViewWeddings");
         }
         else
         {
@@ -47,7 +48,7 @@ public class HomeController : Controller
 
     }
 
-
+// -----------------------LOGIN USER----------------------------------------
     [HttpPost("/users/login")]
     public IActionResult Login(LoginUser userSubmission)
     {
@@ -79,18 +80,21 @@ public class HomeController : Controller
         }
     }
 
+// -------------------------DASHBOARD/VIEW ALL-------------------------------------
     [SessionCheck]
     [HttpGet("/weddings")]
     public IActionResult ViewWeddings()
     {
-         MyViewModel viewModel = new MyViewModel
+        MyViewModel viewModel = new MyViewModel
         {
-        AllWeddings = _context.Weddings.Include(a => a.Guests).ThenInclude(u => u.User).ToList(),
-        Wedding = new Wedding()
-        };  
+            AllWeddings = _context.Weddings.Include(a => a.Guests).ThenInclude(u => u.User).ToList(),
+            Wedding = new Wedding()
+        };
         return View("Weddings", viewModel);
     }
 
+
+// ------------------------------VIEW WEDDING FORM -------------------------------
     [SessionCheck]
     [HttpGet("/weddings/create")]
     public IActionResult ViewWeddingForm()
@@ -100,6 +104,7 @@ public class HomeController : Controller
         return View("WeddingForm");
     }
 
+// ------------------------------VIEW SINGLE WEDDING------------------------
     [SessionCheck]
     [HttpGet("/weddings/{WeddingId}")]
     public IActionResult ViewOneWedding(int WeddingId)
@@ -113,7 +118,7 @@ public class HomeController : Controller
         return View("OneWedding", viewModel);
     }
 
-
+// ---------------------------CREATE WEDDING--------------------------------------------
     [HttpPost("/weddings/create/new")]
     public IActionResult CreateWedding(Wedding newWedding)
     {
@@ -131,6 +136,8 @@ public class HomeController : Controller
 
         }
     }
+
+    // ------------------------------ADD GUEST--------------------------------------
     [HttpPost("/weddings/{WeddingId}/rsvp/update")]
     public IActionResult RSVPWedding(Guest newGuest, int WeddingId)
     {
@@ -148,6 +155,8 @@ public class HomeController : Controller
 
         }
     }
+
+    // --------------------------------DELETE GUEST-----------------------------
     [HttpPost("/weddings/{WeddingId}/rsvp/destroy")]
     public IActionResult LeaveWedding(int WeddingId)
     {
@@ -156,7 +165,8 @@ public class HomeController : Controller
         _context.SaveChanges();
         return RedirectToAction("ViewWeddings");
     }
-    // -------------------------DELETE-----------------------------------------------------
+
+    // -------------------------DELETE WEDDING-----------------------------------------------------
     [HttpPost("weddings/{WeddingId}/destroy")]
     public IActionResult Destroy(int id)
     {

@@ -3,11 +3,11 @@
 }
 @model Wedding
 <div>
-    <div class="d-flex mb-4">
+    <div class="d-flex mb-4 justify-content-around">
         <h3>Welcome @Context.Session.GetString("FirstName")</h3>
-        <p>Home</p>
+        <p><a href="/weddings">Home</a></p>
         <span>|</span>
-        <a href=""></a>
+        <p>Plan A Wedding</p>
         <span>|</span>
         <a href="/logout">Logout</a>
     </div>
@@ -36,7 +36,7 @@
                         <span asp-validation-for="Address"></span>
                     </div>
                     <div class="mb-3 w-25 mx-auto">
-                        <button class="btn btn-outline-dark">Register</button>
+                        <button class="btn btn-outline-light">Register</button>
                     </div>
                 </form>
             </div>
